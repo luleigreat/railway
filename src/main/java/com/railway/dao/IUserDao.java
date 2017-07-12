@@ -1,4 +1,4 @@
-package com.railway.Dao;
+package com.railway.dao;
 
 import com.railway.bean.User;
 

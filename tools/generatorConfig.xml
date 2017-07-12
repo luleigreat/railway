@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-<!DOCTYPE generatorConfiguration  
-  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
-  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
-<generatorConfiguration>  
-<!-- Êý¾Ý¿âÇý¶¯-->  
-    <classPathEntry  location="mysql-connector-java-5.1.25-bin.jar"/>  
-    <context id="DB2Tables"  targetRuntime="MyBatis3">  
-        <commentGenerator>  
+ï»¿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<!-- æ•°æ®åº“é©±åŠ¨-->
+    <classPathEntry  location="mysql-connector-java-5.1.25-bin.jar"/>
+    <context id="DB2Tables"  targetRuntime="MyBatis3">
+        <commentGenerator>
             <property name="suppressDate" value="true"/>  
-            <!-- ÊÇ·ñÈ¥³ý×Ô¶¯Éú³ÉµÄ×¢ÊÍ true£ºÊÇ £º false:·ñ -->  
+            <!-- æ˜¯å¦åŽ»é™¤è‡ªåŠ¨ç”Ÿæˆçš„æ³¨é‡Š trueï¼šæ˜¯ ï¼š false:å¦ -->  
             <property name="suppressAllComments" value="true"/>  
         </commentGenerator>  
-        <!--Êý¾Ý¿âÁ´½ÓURL£¬ÓÃ»§Ãû¡¢ÃÜÂë -->  
+        <!--æ•°æ®åº“é“¾æŽ¥URLï¼Œç”¨æˆ·åã€å¯†ç  -->  
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/railway" userId="root" password="root">  
         </jdbcConnection>  
         <javaTypeResolver>  
             <property name="forceBigDecimals" value="false"/>  
         </javaTypeResolver>  
-        <!-- Éú³ÉÄ£ÐÍµÄ°üÃûºÍÎ»ÖÃ-->  
+        <!-- ç”Ÿæˆæ¨¡åž‹çš„åŒ…åå’Œä½ç½®-->  
         <javaModelGenerator targetPackage="com.railway.bean" targetProject="src/main/java">  
             <property name="enableSubPackages" value="true"/>  
             <property name="trimStrings" value="true"/>  
         </javaModelGenerator>  
-        <!-- Éú³ÉÓ³ÉäÎÄ¼þµÄ°üÃûºÍÎ»ÖÃ-->  
-        <sqlMapGenerator targetPackage="com.railway.mapping" targetProject="src/main/java">  
+        <!-- ç”Ÿæˆæ˜ å°„æ–‡ä»¶çš„åŒ…åå’Œä½ç½®-->  
+        <sqlMapGenerator targetPackage="com.test.mapping" targetProject="src/main/java">  
             <property name="enableSubPackages" value="true"/>  
         </sqlMapGenerator>  
-        <!-- Éú³ÉDAOµÄ°üÃûºÍÎ»ÖÃ-->  
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.railway.Dao" targetProject="src/main/java">  
+        <!-- ç”ŸæˆDAOçš„åŒ…åå’Œä½ç½®-->  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.test.Dao" targetProject="src/main/java">  
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>  
-        <!-- ÒªÉú³ÉµÄ±í tableNameÊÇÊý¾Ý¿âÖÐµÄ±íÃû»òÊÓÍ¼Ãû domainObjectNameÊÇÊµÌåÀàÃû-->  
-        <table tableName="user_t" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!-- è¦ç”Ÿæˆçš„è¡¨ tableNameæ˜¯æ•°æ®åº“ä¸­çš„è¡¨åæˆ–è§†å›¾å domainObjectNameæ˜¯å®žä½“ç±»å-->  
+        <table tableName="user_info_t" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     </context>  
 </generatorConfiguration>  

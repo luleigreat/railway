@@ -4,8 +4,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.railway.Dao.IUserDao;
 import com.railway.bean.User;
+import com.railway.dao.IUserDao;
 import com.railway.service.IUserService;
 
 @Service("userService")  
