@@ -13,33 +13,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.railway.bean.User;
-import com.railway.service.UserService;
+import com.railway.bean.Admin;
+import com.railway.service.AdminService;
 
-  
 @Controller  
-public class UserController {  
-	private static Logger logger = LoggerFactory.getLogger(UserController.class);
+public class AdminController {
+	private static Logger logger = LoggerFactory.getLogger(AdminController.class);
 	@Resource
-    private UserService userService;  
-      
-//    @RequestMapping("/showUser")  
-//    public String toIndex(HttpServletRequest request,Model model){  
-//        int userId = Integer.parseInt(request.getParameter("id"));  
-//        //User user = this.userService.getUserById(userId);  
-//       // model.addAttribute("user", user);  
-//        return "showUser";  	
-//    }  
-    
+    private AdminService adminService;  
+	
 	/**
 	 * 初始登陆界面
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/login.do")
+	@RequestMapping("/admin_login.do")
 	public String tologin(HttpServletRequest request, HttpServletResponse response, Model model){
 		logger.debug("来自IP[" + request.getRemoteHost() + "]的访问");
-		return "user/login";
+		return "admin/login";
 	}
 	
 	/**
@@ -47,26 +38,26 @@ public class UserController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/checkLogin.do")
+	@RequestMapping("/checkAdminLogin.do")
 	public String login(HttpServletRequest request,Model model) {
-		String result = "user/login";
+		String result = "admin/login";
 		// 取得用户名
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		try{
-			User user = userService.getUserByUserName(username);
+			Admin user = adminService.getAdminByUserName(username);
 			if(user == null){
-				result = "user/login"; 
+				result = "admin/login"; 
 				model.addAttribute("error", "用户不存在");
 				return result;
 			}
 			if(user.getPassword().equals(password)){
-				result = "user/index";
+				result = "admin/index";
 			}
 		}catch (Exception e) {
 			logger.error(e.getMessage());
 			model.addAttribute("error", "验证异常");
-			result = "user/login";//验证失败
+			result = "admin/login";//验证失败
 		}
 		return result;
 	}
@@ -75,11 +66,10 @@ public class UserController {
      * 退出
      * @return
      */
-    @RequestMapping(value = "/logout.do")  
-    public String logout(HttpServletRequest request) {  
+    @RequestMapping(value = "/admin_logout.do")  
+    public String logout() {  
   
-        String result = "user/login";  
-
+        String result = "admin/login";  
         return result;  
     }  
-}  
+}

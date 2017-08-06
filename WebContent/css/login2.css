@@ -167,6 +167,12 @@ input::-ms-clear {
 	overflow:hidden;
 }
 
+.web_login .error{
+	color:#f00;
+	text-align:center;
+	font-size: 12px;
+}
+
 .cue {
 	height:40px;
 	line-height:40px;
