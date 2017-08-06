@@ -1,13 +1,11 @@
 package com.railway.bean;
 
-public class User {
+public class Admin {
     private String username;
 
     private String password;
 
     private String passwordSalt;
-
-    private String sectionName;
 
     public String getUsername() {
         return username;
@@ -31,13 +29,5 @@ public class User {
 
     public void setPasswordSalt(String passwordSalt) {
         this.passwordSalt = passwordSalt == null ? null : passwordSalt.trim();
-    }
-
-    public String getSectionName() {
-        return sectionName;
-    }
-
-    public void setSectionName(String sectionName) {
-        this.sectionName = sectionName == null ? null : sectionName.trim();
     }
 }

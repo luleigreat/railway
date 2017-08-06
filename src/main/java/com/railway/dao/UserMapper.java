@@ -2,14 +2,14 @@ package com.railway.dao;
 
 import com.railway.bean.User;
 
-public interface IUserDao {
-    int deleteByPrimaryKey(Integer id);
+public interface UserMapper {
+    int deleteByPrimaryKey(String username);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer id);
+    User selectByPrimaryKey(String username);
 
     int updateByPrimaryKeySelective(User record);
 

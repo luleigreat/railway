@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.railway.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.railway.bean.User" >
+<mapper namespace="com.railway.dao.AdminMapper" >
+  <resultMap id="BaseResultMap" type="com.railway.bean.Admin" >
     <id column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="password_salt" property="passwordSalt" jdbcType="VARCHAR" />
-    <result column="section_name" property="sectionName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    username, password, password_salt, section_name
+    username, password, password_salt
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from t_user_info
+    from t_admin_info
     where username = #{username,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from t_user_info
+    delete from t_admin_info
     where username = #{username,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.railway.bean.User" >
-    insert into t_user_info (username, password, password_salt, 
-      section_name)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{passwordSalt,jdbcType=VARCHAR}, 
-      #{sectionName,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.railway.bean.Admin" >
+    insert into t_admin_info (username, password, password_salt
+      )
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{passwordSalt,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.railway.bean.User" >
-    insert into t_user_info
+  <insert id="insertSelective" parameterType="com.railway.bean.Admin" >
+    insert into t_admin_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="username != null" >
         username,
@@ -37,9 +36,6 @@
       </if>
       <if test="passwordSalt != null" >
         password_salt,
-      </if>
-      <if test="sectionName != null" >
-        section_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -52,13 +48,10 @@
       <if test="passwordSalt != null" >
         #{passwordSalt,jdbcType=VARCHAR},
       </if>
-      <if test="sectionName != null" >
-        #{sectionName,jdbcType=VARCHAR},
-      </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.User" >
-    update t_user_info
+  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.Admin" >
+    update t_admin_info
     <set >
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
@@ -66,17 +59,13 @@
       <if test="passwordSalt != null" >
         password_salt = #{passwordSalt,jdbcType=VARCHAR},
       </if>
-      <if test="sectionName != null" >
-        section_name = #{sectionName,jdbcType=VARCHAR},
-      </if>
     </set>
     where username = #{username,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.railway.bean.User" >
-    update t_user_info
+  <update id="updateByPrimaryKey" parameterType="com.railway.bean.Admin" >
+    update t_admin_info
     set password = #{password,jdbcType=VARCHAR},
-      password_salt = #{passwordSalt,jdbcType=VARCHAR},
-      section_name = #{sectionName,jdbcType=VARCHAR}
+      password_salt = #{passwordSalt,jdbcType=VARCHAR}
     where username = #{username,jdbcType=VARCHAR}
   </update>
 </mapper>
