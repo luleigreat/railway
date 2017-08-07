@@ -15,8 +15,20 @@
 </head>
 <body>
 	<h1>登陆实例</h1><a href="${ctx}/logout.do">退出</a>
-	<p>一、验证当前用户是否为"访客"，即未认证（包含未记住）的用户</p>
-	<p>二、认证通过或已记住的用户</p>
-	 
+	<form action="" method="post">
+		<label>请先把导入批次：</label> 
+		<select name="year">
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+			<option value="2021">2021</option>
+		</select>
+		<select name="type" id="">
+			<option value="1">铁总数据预统计</option>
+			<option value="2">铁总职教统计</option>
+		</select>
+		
+	</form>
 </body>
 </html>
