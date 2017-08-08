@@ -11,24 +11,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登陆实例</title>
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="js/user/index.js"></script>
+<title>${section_name}</title>
 </head>
 <body>
-	<h1>登陆实例</h1><a href="${ctx}/logout.do">退出</a>
-	<form action="" method="post">
-		<label>请先把导入批次：</label> 
-		<select name="year">
-			<option value="2017">2017</option>
-			<option value="2018">2018</option>
-			<option value="2019">2019</option>
-			<option value="2020">2020</option>
-			<option value="2021">2021</option>
-		</select>
-		<select name="type" id="">
-			<option value="1">铁总数据预统计</option>
-			<option value="2">铁总职教统计</option>
-		</select>
-		
-	</form>
+	<h1>${section_name}</h1>
+	<a href="${ctx}/logout.do">退出</a>
+	
+	<label>请先把导入类别：</label> 
+	<select name="type" id="">
+		<option value="1">教育部统计报表</option>
+		<option value="2">铁总数据预统计</option>
+		<option value="3">铁总职教统计</option>
+	</select>
+    <div style="text-align: center">
+        <table id = "blocktable" style="margin-bottom:8px;font-size:12px;width:739px;background-color:#eff7fa;border:solid 1px #c8e1e6;min-width: 719px;" class="xinxi3">
+            <thead>
+                <tr>
+                    <th>表名</th>
+                    <th>上传情况</th>
+                    <th>操作</th>
+                    <th>模板</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
