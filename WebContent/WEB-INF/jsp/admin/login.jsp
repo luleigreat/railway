@@ -12,7 +12,7 @@
 <head>
 <title>铁总职教数据统计平台</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="images/login.js"></script>
 	<link href="css/login2.css" rel="stylesheet" type="text/css" />
 </head>

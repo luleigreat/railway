@@ -61,7 +61,7 @@ public class UserController {
 				return result;
 			}
 			if(user.getPassword().equals(password)){
-				result = "user/index";
+				result = "index";
 				model.addAttribute("section_name", user.getSectionName());
 			}
 		}catch (Exception e) {

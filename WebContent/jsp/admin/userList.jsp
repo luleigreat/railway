@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
-<script type="text/javascript" src="js/admin/index.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>admin 登录成功！</h1>
+	<div>
+		我是用户列表 (っ´Ι`)っ
+	</div>
 </body>
 </html>
