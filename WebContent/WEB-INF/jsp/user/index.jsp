@@ -26,7 +26,7 @@
 		<option value="3">铁总职教统计</option>
 	</select>
     <div style="text-align: center">
-        <table id = "blocktable" style="margin-bottom:8px;font-size:12px;width:739px;background-color:#eff7fa;border:solid 1px #c8e1e6;min-width: 719px;" class="xinxi3">
+        <table id = "satisticInfo" style="margin-bottom:8px;font-size:12px;width:739px;background-color:#eff7fa;border:solid 1px #c8e1e6;min-width: 719px;" class="xinxi3">
             <thead>
                 <tr>
                     <th>表名</th>

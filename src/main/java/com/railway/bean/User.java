@@ -5,8 +5,6 @@ public class User {
 
     private String password;
 
-    private String passwordSalt;
-
     private String sectionName;
 
     public String getUsername() {
@@ -23,14 +21,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public String getPasswordSalt() {
-        return passwordSalt;
-    }
-
-    public void setPasswordSalt(String passwordSalt) {
-        this.passwordSalt = passwordSalt == null ? null : passwordSalt.trim();
     }
 
     public String getSectionName() {

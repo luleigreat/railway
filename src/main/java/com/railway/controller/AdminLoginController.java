@@ -17,8 +17,8 @@ import com.railway.bean.Admin;
 import com.railway.service.AdminService;
 
 @Controller  
-public class AdminController {
-	private static Logger logger = LoggerFactory.getLogger(AdminController.class);
+public class AdminLoginController {
+	private static Logger logger = LoggerFactory.getLogger(AdminLoginController.class);
 	@Resource
     private AdminService adminService;  
 	

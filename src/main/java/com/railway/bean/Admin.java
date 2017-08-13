@@ -5,8 +5,6 @@ public class Admin {
 
     private String password;
 
-    private String passwordSalt;
-
     public String getUsername() {
         return username;
     }
@@ -21,13 +19,5 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public String getPasswordSalt() {
-        return passwordSalt;
-    }
-
-    public void setPasswordSalt(String passwordSalt) {
-        this.passwordSalt = passwordSalt == null ? null : passwordSalt.trim();
     }
 }

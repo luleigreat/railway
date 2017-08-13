@@ -1,71 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.railway.dao.AdminMapper">
-  <resultMap id="BaseResultMap" type="com.railway.bean.Admin">
-    <id column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="password_salt" jdbcType="VARCHAR" property="passwordSalt" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.railway.dao.AdminMapper" >
+  <resultMap id="BaseResultMap" type="com.railway.bean.Admin" >
+    <id column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
-    username, password, password_salt
+  <sql id="Base_Column_List" >
+    username, password
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from t_admin_info
     where username = #{username,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from t_admin_info
     where username = #{username,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.railway.bean.Admin">
-    insert into t_admin_info (username, password, password_salt
-      )
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{passwordSalt,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.railway.bean.Admin" >
+    insert into t_admin_info (username, password)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.railway.bean.Admin">
+  <insert id="insertSelective" parameterType="com.railway.bean.Admin" >
     insert into t_admin_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="username != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
         username,
       </if>
-      <if test="password != null">
+      <if test="password != null" >
         password,
       </if>
-      <if test="passwordSalt != null">
-        password_salt,
-      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="username != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
+      <if test="password != null" >
         #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="passwordSalt != null">
-        #{passwordSalt,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.Admin">
+  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.Admin" >
     update t_admin_info
-    <set>
-      <if test="password != null">
+    <set >
+      <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="passwordSalt != null">
-        password_salt = #{passwordSalt,jdbcType=VARCHAR},
       </if>
     </set>
     where username = #{username,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.railway.bean.Admin">
+  <update id="updateByPrimaryKey" parameterType="com.railway.bean.Admin" >
     update t_admin_info
-    set password = #{password,jdbcType=VARCHAR},
-      password_salt = #{passwordSalt,jdbcType=VARCHAR}
+    set password = #{password,jdbcType=VARCHAR}
     where username = #{username,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +19,8 @@ import com.railway.service.UserService;
 
   
 @Controller  
-public class UserController {  
-	private static Logger logger = LoggerFactory.getLogger(UserController.class);
+public class UserLoginController {  
+	private static Logger logger = LoggerFactory.getLogger(UserLoginController.class);
 	@Resource
     private UserService userService;  
       
@@ -48,7 +49,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/checkLogin.do")
-	public String login(HttpServletRequest request,Model model) {
+	public String login(HttpServletRequest request,HttpSession session,Model model) {
 		String result = "user/login";
 		// 取得用户名
 		String username = request.getParameter("username");
@@ -63,6 +64,7 @@ public class UserController {
 			if(user.getPassword().equals(password)){
 				result = "index";
 				model.addAttribute("section_name", user.getSectionName());
+				session.setAttribute("userName", user.getUsername());
 			}
 		}catch (Exception e) {
 			logger.error(e.getMessage());
