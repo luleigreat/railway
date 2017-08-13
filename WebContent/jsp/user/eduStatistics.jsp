@@ -4,18 +4,16 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>	
-	<script type="text/javascript" src="js/user/eduStatistics.js"></script>
+	<script type="text/javascript" src="../../js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>	
+	<script type="text/javascript" src="../../js/user/eduStatistics.js"></script>
 	<script type="text/javascript">
 		/*
 		 * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
 		 * （实现左侧菜单中的标签点击后变色的效果）
 		 */
 		$(document).ready(function () {
-			alert("hi");
-			//LLPage_EduStatistics.init();
-			alert("what?");
+			LLPage_EduStatistics.init();
 		});
 	</script>
 </head>

@@ -62,7 +62,7 @@ public class UserLoginController {
 				return result;
 			}
 			if(user.getPassword().equals(password)){
-				result = "index";
+				result = "user/index";
 				model.addAttribute("section_name", user.getSectionName());
 				session.setAttribute("userName", user.getUsername());
 			}

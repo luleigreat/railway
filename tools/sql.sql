@@ -1,8 +1,8 @@
-drop table if exists "t_user_info";
-drop table if exists "t_admin_info";
-drop table if exists "t_type_info";
-drop table if exists "t_table_info";
-drop table if exists "t_upload_info";
+drop table if exists t_user_info;
+drop table if exists t_admin_info;
+drop table if exists t_type_info;
+drop table if exists t_table_info;
+drop table if exists t_upload_info;
 
 create table t_user_info(
   username varchar(100),
@@ -26,7 +26,7 @@ create table t_type_info(
 create table t_table_info(
   id int(4),
   table_name varchar(100),
-  table_type int(4),
+  type_id int(4),
   template_path varchar(100),
   constraint pk_table_name primary key(id)
 ) charset=utf8 ENGINE=InnoDB;
@@ -38,6 +38,10 @@ create table t_upload_info(
   uploaded int(4),
   constraint pk_upload_info primary key(user_name,year)
 ) charset=utf8 ENGINE=InnoDB;
+
+
+insert into t_admin_info values("admin","admin");
+insert into t_user_info values("gzz","gzz");
 
 insert into t_type_info values(1,"教育部统计报表");
 insert into t_type_info values(2,"铁总数据预统计");
