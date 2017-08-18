@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="com.railway.bean.TableInfo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="table_name" property="tableName" jdbcType="VARCHAR" />
-    <result column="table_type" property="tableType" jdbcType="INTEGER" />
+    <result column="type_id" property="tableType" jdbcType="INTEGER" />
     <result column="template_path" property="templatePath" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, table_name, table_type, template_path
+    id, table_name, type_id, template_path
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -16,14 +16,20 @@
     from t_table_info
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByTypeId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    *
+    from t_table_info
+    where type_id = #{type_id,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_table_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.railway.bean.TableInfo" >
-    insert into t_table_info (id, table_name, table_type, 
+    insert into t_table_info (id, table_name, type_id, 
       template_path)
-    values (#{id,jdbcType=INTEGER}, #{tableName,jdbcType=VARCHAR}, #{tableType,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{tableName,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
       #{templatePath,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.railway.bean.TableInfo" >
@@ -35,8 +41,8 @@
       <if test="tableName != null" >
         table_name,
       </if>
-      <if test="tableType != null" >
-        table_type,
+      <if test="typeId != null" >
+        type_id,
       </if>
       <if test="templatePath != null" >
         template_path,
@@ -49,7 +55,7 @@
       <if test="tableName != null" >
         #{tableName,jdbcType=VARCHAR},
       </if>
-      <if test="tableType != null" >
+      <if test="typeId != null" >
         #{tableType,jdbcType=INTEGER},
       </if>
       <if test="templatePath != null" >
@@ -64,7 +70,7 @@
         table_name = #{tableName,jdbcType=VARCHAR},
       </if>
       <if test="tableType != null" >
-        table_type = #{tableType,jdbcType=INTEGER},
+        type_id = #{tableType,jdbcType=INTEGER},
       </if>
       <if test="templatePath != null" >
         template_path = #{templatePath,jdbcType=VARCHAR},
@@ -75,7 +81,7 @@
   <update id="updateByPrimaryKey" parameterType="com.railway.bean.TableInfo" >
     update t_table_info
     set table_name = #{tableName,jdbcType=VARCHAR},
-      table_type = #{tableType,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=INTEGER},
       template_path = #{templatePath,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

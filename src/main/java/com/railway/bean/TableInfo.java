@@ -5,7 +5,7 @@ public class TableInfo {
 
     private String tableName;
 
-    private Integer tableType;
+    private Integer typeId;
 
     private String templatePath;
 
@@ -26,11 +26,11 @@ public class TableInfo {
     }
 
     public Integer getTableType() {
-        return tableType;
+        return typeId;
     }
 
     public void setTableType(Integer tableType) {
-        this.tableType = tableType;
+        this.typeId = tableType;
     }
 
     public String getTemplatePath() {

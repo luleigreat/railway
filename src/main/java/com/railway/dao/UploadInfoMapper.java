@@ -1,5 +1,9 @@
 package com.railway.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.railway.bean.UploadInfo;
 import com.railway.bean.UploadInfoKey;
 
@@ -15,4 +19,6 @@ public interface UploadInfoMapper {
     int updateByPrimaryKeySelective(UploadInfo record);
 
     int updateByPrimaryKey(UploadInfo record);
+    
+    List<UploadInfo> selectBySelective(@Param("userName")String userName,@Param("year")String year,@Param("list")List<Integer> list);
 }

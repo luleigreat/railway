@@ -1,5 +1,7 @@
 package com.railway.dao;
 
+import java.util.List;
+
 import com.railway.bean.TableInfo;
 
 public interface TableInfoMapper {
@@ -10,6 +12,8 @@ public interface TableInfoMapper {
     int insertSelective(TableInfo record);
 
     TableInfo selectByPrimaryKey(Integer id);
+    
+    List<TableInfo> selectByTypeId(Integer type_id);
 
     int updateByPrimaryKeySelective(TableInfo record);
 

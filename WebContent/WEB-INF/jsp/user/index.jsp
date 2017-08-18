@@ -30,12 +30,6 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top">
       		<div class="container">
         		<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" >
-		            	<span class="sr-only">Toggle navigation</span>
-		            	<span class="icon-bar"></span>
-		            	<span class="icon-bar"></span>
-		            	<span class="icon-bar"></span>
-					</button>
 	          		<a class="navbar-brand">${section_name}站段用户，您好</a>
         		</div>
         		
@@ -53,7 +47,7 @@
 	<!-- 左侧菜单选项========================================= -->
 		<div class="container-fluid">
 			<div class="row-fluie">
-				<div class="col-sm-3 col-md-2 sidebar">		
+				<div class="col-sm-3  sidebar">		
 					<ul class="nav nav-sidebar">
 						
 						<!-- 
@@ -91,7 +85,7 @@
 		<!-- 右侧内容展示==================================================  -->
 		<div class="col-sm-9 col-sm-offset-3 main">
 			<iframe id="iframeContent" src="jsp/default.jsp"
-				style="width: 100%; height:2000px;border: 0px"> </iframe>
+				style="width: 100%; height:100%;border: 0px"> </iframe>
 		</div> 
 
 		<script type="text/javascript">

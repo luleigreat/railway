@@ -17,6 +17,18 @@
     where user_name = #{userName,jdbcType=VARCHAR}
       and year = #{year,jdbcType=VARCHAR}
   </select>
+  <select id="selectBySelective" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+	from t_upload_info
+	where user_name = #{userName,jdbcType=VARCHAR}
+	and year = #{year,jdbcType=VARCHAR}
+	and table_id in
+	<foreach item="item" index="index" collection="list" open="("
+		separator="," close=")">
+		#{item}
+	</foreach>
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="com.railway.bean.UploadInfoKey" >
     delete from t_upload_info
     where user_name = #{userName,jdbcType=VARCHAR}
