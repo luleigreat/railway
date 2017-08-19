@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.railway.bean.TableInfo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="table_name" property="tableName" jdbcType="VARCHAR" />
-    <result column="type_id" property="tableType" jdbcType="INTEGER" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER" />
     <result column="template_path" property="templatePath" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -56,7 +56,7 @@
         #{tableName,jdbcType=VARCHAR},
       </if>
       <if test="typeId != null" >
-        #{tableType,jdbcType=INTEGER},
+        #{type_id,jdbcType=INTEGER},
       </if>
       <if test="templatePath != null" >
         #{templatePath,jdbcType=VARCHAR},
@@ -69,8 +69,8 @@
       <if test="tableName != null" >
         table_name = #{tableName,jdbcType=VARCHAR},
       </if>
-      <if test="tableType != null" >
-        type_id = #{tableType,jdbcType=INTEGER},
+      <if test="type_id != null" >
+        type_id = #{type_id,jdbcType=INTEGER},
       </if>
       <if test="templatePath != null" >
         template_path = #{templatePath,jdbcType=VARCHAR},

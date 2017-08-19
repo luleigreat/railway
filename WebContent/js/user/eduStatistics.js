@@ -3,7 +3,7 @@
  */
 
 var LLPage_EduStatistics = {
-    init: function () {
+    init: function (typeId) {
     	
     	function initTable(){
     		var type = {"id":1};
@@ -17,7 +17,7 @@ var LLPage_EduStatistics = {
                     if (data.error) {
                         alert(data.error);
                     }else{
-                    	updateTable(data.result);
+                    	updateTable(data.result,typeId);
                     }
                 },
                 error : function(data) {
@@ -27,7 +27,7 @@ var LLPage_EduStatistics = {
             });
     	}
     	
-    	function updateTable(data){
+    	function updateTable(data,typeId){
             var table = document.getElementById("blocktable");
 
             var htmlText = "";
@@ -43,11 +43,37 @@ var LLPage_EduStatistics = {
                 	htmlText += "<td><a href=\"javascript:;\">上传</a></td>";
                 }
 
-                htmlText += "<td><a href=\"" +  data[item].templatePath + "\">下载</a> </td>";
+//                htmlText += "<td><a href='#' onclick=\"downloadTable('" + typeId + "','" + data[item].tableName + "')\">下载</a> </td>";
+                htmlText += "<td><a href=\"../../download?type=" + typeId + "&filename=" + data[item].tableName + "\">下载</a> </td>";
                 htmlText += "</tr>";
             }
             $("#blocktable tbody").html(htmlText);
     	}
-    	initTable();
-    }
+    	
+    	initTable(typeId);
+    },
+	 download:function(typeId,tableName){
+		var table = {
+			"tableName":tableName,
+			"typeId":typeId
+		}
+		$.ajax({
+	        type : "POST",
+	        url : "../../file/down",
+	        data : JSON.stringify(table),
+	        contentType : 'application/json;charset=utf-8',
+	        dataType : 'json',
+	        success : function(data) {
+	            if (data.error) {
+	                alert(data.error);
+	            }else{
+	            	//updateTable(data.result,typeId);
+	            }
+	        },
+	        error : function(data) {
+	            alert("error:" + data.code);
+	        }
+	
+	    });
+	 }
 }

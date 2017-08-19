@@ -14,8 +14,12 @@
 		 * （实现左侧菜单中的标签点击后变色的效果）
 		 */
 		$(document).ready(function () {
-			LLPage_EduStatistics.init();
+			LLPage_EduStatistics.init(1);
 		});
+		
+		function downloadTable(typeId,tableName){
+			LLPage_EduStatistics.download(typeId,tableName);
+		}
 	</script>
 </head>
 <body>
@@ -24,13 +28,13 @@
 		</small>
 	</h1>
 	<div class="table-responsive">
-	<table id="blocktable" style="" class="table table-bordered table-striped">
+	<table id="blocktable" style="text-align:center;" class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<th>表名</th>
-				<th>上传情况</th>
-				<th>操作</th>
-				<th>模板</th>
+				<th style="text-align:center;">表名</th>
+				<th style="text-align:center;">上传情况</th>
+				<th style="text-align:center;">操作</th>
+				<th style="text-align:center;">模板</th>
 			</tr>
 		</thead>
 		<tbody>

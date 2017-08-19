@@ -25,11 +25,11 @@ public class TableInfo {
         this.tableName = tableName == null ? null : tableName.trim();
     }
 
-    public Integer getTableType() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTableType(Integer tableType) {
+    public void setTypeId(Integer tableType) {
         this.typeId = tableType;
     }
 
