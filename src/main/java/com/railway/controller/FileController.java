@@ -29,7 +29,7 @@ import com.railway.bean.TableInfo;
 @Controller  
 public class FileController {  
     /**  
-     * 文件上传功能  
+     * 文件上传功能  http://blog.csdn.net/linwei_1029/article/details/8720754
      * @param file  
      * @return  
      * @throws IOException   
@@ -58,6 +58,7 @@ public class FileController {
     public ResponseEntity<byte[]> download(HttpServletRequest request,@RequestParam("filename") String filename,@RequestParam("type") String type,Model model)throws Exception{
         String path=request.getServletContext().getRealPath("/template");  //获取文件所在路径
         path = path + File.separator + type;
+        System.out.println(filename);
         filename=new String(filename.getBytes("ISO-8859-1"),"UTF-8");     //不知何故，result.jsp的请求参数是ISO-8859-1编码的，但明明设置了charset=utf-8
         filename += ".xls";
         File file=new File(path+File.separator+filename);

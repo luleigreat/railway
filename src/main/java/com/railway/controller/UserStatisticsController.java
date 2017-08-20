@@ -42,13 +42,17 @@ public class UserStatisticsController {
 		if(new Date().getYear() >= year){
 			year = new Date().getYear();
 		}
+		//根据typeId获取表格信息
 		List<TableInfo> listTable = tableService.getTableInfo(type.getId());
 		List<Integer> listIds = new ArrayList<Integer>();
 		for(TableInfo info : listTable){
 			listIds.add(info.getId());
 		}
+		
+		//获取上传信息
 		List<UploadInfo> listUpload = uploadService.selectBySelective(userName, year + "",listIds);	
 		
+		//构造返回结果
 		List<TableInfoView> listView = new ArrayList<TableInfoView>();
 		for(TableInfo info : listTable){
 			TableInfoView view = new TableInfoView();

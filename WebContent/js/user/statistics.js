@@ -6,7 +6,7 @@ var LLPage_EduStatistics = {
     init: function (typeId) {
     	
     	function initTable(){
-    		var type = {"id":1};
+    		var type = {"id":typeId};
             $.ajax({
                 type : "POST",
                 url : "../../user/statistics",

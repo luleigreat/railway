@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../../css/bootstrap.css">
 	<script type="text/javascript" src="../../js/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>	
-	<script type="text/javascript" src="../../js/user/eduStatistics.js"></script>
+	<script type="text/javascript" src="../../js/user/statistics.js"></script>
 	<script type="text/javascript">
 		/*
 		 * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
@@ -16,10 +16,6 @@
 		$(document).ready(function () {
 			LLPage_EduStatistics.init(1);
 		});
-		
-		function downloadTable(typeId,tableName){
-			LLPage_EduStatistics.download(typeId,tableName);
-		}
 	</script>
 </head>
 <body>
