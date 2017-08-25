@@ -1,0 +1,134 @@
+{
+	"table1":{
+		"infoTable":{
+			"create":"create table %s(userName varchar(50),writeUnit varchar(50), statisticTime varchar(50),people varchar(20),underRow varchar(100))",
+			"insert":"insert into %s values(%s,%s,%s,%s,%s)",
+			"select":"select * from %s where userName = %s"
+		},
+		"dataTable":{
+			"create":"create table %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int,data9 int,data10 int,data11 int,data12 int,data13 int,data14 int,data15 int,data16 int )",
+			"insert":"insert into %s values(%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d)",
+			"select":"select * from %s"
+		}
+	},
+	"table2":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table3":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table4":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table5":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table6":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table7":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table8":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table9":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table10":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table11":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+}

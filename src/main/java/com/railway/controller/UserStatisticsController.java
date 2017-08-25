@@ -56,6 +56,7 @@ public class UserStatisticsController {
 		List<TableInfoView> listView = new ArrayList<TableInfoView>();
 		for(TableInfo info : listTable){
 			TableInfoView view = new TableInfoView();
+			view.setTableId(info.getId());
 			view.setTableName(info.getTableName());
 			view.setTemplatePath(info.getTemplatePath());
 			boolean bFound = false;

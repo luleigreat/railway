@@ -1,6 +1,7 @@
 package com.railway.model;
 
 public class TableInfoView {
+	private int tableId;
 	private String tableName;
 	private String templatePath;
 	private boolean uploaded;
@@ -21,6 +22,12 @@ public class TableInfoView {
 	}
 	public void setUploaded(boolean uploaded) {
 		this.uploaded = uploaded;
+	}
+	public int getTableId() {
+		return tableId;
+	}
+	public void setTableId(int tableId) {
+		this.tableId = tableId;
 	}
 	
 }
