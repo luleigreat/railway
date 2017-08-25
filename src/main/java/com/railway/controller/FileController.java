@@ -95,7 +95,11 @@ public class FileController {
     }
     
     private void createInfoTable(String tableName,int tableId){
-    	
+    	if(tableId == 1){
+    		
+    	}else if(tableId == 2){
+    		
+    	}
     }
     
     private void createDataTable(String tableName,int tableId){
