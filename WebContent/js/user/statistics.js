@@ -79,8 +79,13 @@ var LLPage_EduStatistics = {
 	            fileElementId:id,  
 	            dataType: 'json',  
 	            success: function (data, status)  
-	            {                 
-	                alert(data);  
+	            {              
+	            	if(data.result=="success"){
+	            		alert("上传成功!");
+	            		location.reload();
+	            	}
+	            	else
+	            		alert("上传失败!");
 	                  
 	            },  
 	            error: function (data, status, e)  

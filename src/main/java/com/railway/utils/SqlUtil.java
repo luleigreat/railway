@@ -1,5 +1,7 @@
 package com.railway.utils;
 
+import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +10,8 @@ public class SqlUtil {
 	static{
 		exeSql_ = new ExecuteSql();
 		try {
-			exeSql_.initParam("src/main/resources/jdbc.properties");
+			exeSql_.initParam();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

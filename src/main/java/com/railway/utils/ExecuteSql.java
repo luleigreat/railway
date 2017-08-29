@@ -1,9 +1,12 @@
 package com.railway.utils;
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +20,19 @@ public class ExecuteSql {
     private String pass;
     Connection conn;
     Statement stmt;
+    List<Statement> listStmt = new ArrayList<Statement>();
     ResultSet rs;
-    public void initParam(String paramFile) throws Exception {
+    boolean isInTrans = false;
+    
+    public void initParam() throws IOException{
+    	InputStream is = ExecuteSql.class.getClassLoader().getResourceAsStream("jdbc.properties");
         Properties props = new Properties();
-        props.load(new FileInputStream(paramFile));
+
+		props.load(is);
         driver = props.getProperty("driver");
         url = props.getProperty("url");
         user = props.getProperty("username");
-        pass = props.getProperty("password");       
+        pass = props.getProperty("password");  
     }
      
     public List<List<String>> executeSql(String sql) throws Exception{
@@ -67,6 +75,48 @@ public class ExecuteSql {
         }
         return list;
     }
+    
+    public void beginTrans() throws SQLException, ClassNotFoundException{
+        Class.forName(driver);
+        conn = DriverManager.getConnection(url,user,pass);
+        conn.setAutoCommit(false); //JDBC中默认是true，我们改成false，然后在后面手动提交
+        listStmt.clear();
+    	isInTrans = true;
+    }
+    
+    public void executeTrans(String sql) throws SQLException{
+        Statement stmt = conn.createStatement();
+        stmt.execute(sql);
+        listStmt.add(stmt);
+        System.out.println("改SQL语句影响的记录有" + stmt.getUpdateCount() + "条");
+    }
+    
+    public boolean endTrans(boolean commit){
+    	isInTrans = false;
+    	try 
+        {
+        	if(commit){
+        		conn.commit();
+        	}else{
+        		conn.rollback();
+        	}
+        	
+            for(Statement stmt:listStmt){
+            	if(stmt != null)
+            		stmt.close();
+            }
+            if(conn!=null)
+            {
+                conn.close();
+            }
+            return true;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
      
     /**
      * @param args
@@ -75,12 +125,18 @@ public class ExecuteSql {
     public static void main(String[] args) throws Exception {
          
     	ExecuteSql ed = new ExecuteSql();
-        ed.initParam("src/main/resources/jdbc.properties");
+        ed.initParam();
      
-        ed.executeSql("drop table if exists school"); //(insertSql);    
-        ed.executeSql("create table school(id int, name varchar(50), addr varchar(50))");       
-        ed.executeSql("insert into school values(1, 'No1', 'BeiJing')");    
-        ed.executeSql("select * from school");  
+//        ed.executeSql("drop table if exists school"); //(insertSql);    
+//        ed.executeSql("create table school(id int, name varchar(50), addr varchar(50))");       
+//        ed.executeSql("insert into school values(1, 'No1', 'BeiJing')");    
+//        ed.executeSql("select * from school");  
+        
+        ed.beginTrans();
+        ed.executeTrans("create table school2(id int, name varchar(50), addr varchar(50))");
+        ed.executeTrans("insert into school2 values(1, 'No1', 'BeiJing')");  
+        ed.executeTrans("insert into school2 values(2, 'No1', 'BeiJing')");  
+        ed.endTrans(false);
     }
      
  

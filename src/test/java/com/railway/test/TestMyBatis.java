@@ -14,10 +14,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.alibaba.fastjson.JSON;
 import com.railway.bean.TableInfo;
 import com.railway.bean.UploadInfo;
-import com.railway.bean.UploadInfoKey;
 import com.railway.bean.User;
 import com.railway.service.TableService;
 import com.railway.service.UploadService;
@@ -47,7 +45,7 @@ public class TestMyBatis {
         User user = userService.getUserByUserName("gzz");  
         // System.out.println(user.getUserName());  
         // logger.info("值："+user.getUserName());  
-        logger.info(JSON.toJSONString(user));  
+        logger.info(user);  
         
         List<TableInfo> listTable = tableService.getTableInfo(1);
         for(TableInfo info:listTable){

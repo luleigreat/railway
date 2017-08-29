@@ -91,4 +91,12 @@
     where user_name = #{userName,jdbcType=VARCHAR}
       and year = #{year,jdbcType=VARCHAR}
   </update>
+  
+  <update id="updateBySelective" parameterType="map">
+  	update t_upload_info
+    set uploaded = #{uploaded,jdbcType=INTEGER}
+    where user_name = #{userName,jdbcType=VARCHAR}
+      and year = #{year,jdbcType=VARCHAR}
+      and table_id = #{tableId,jdbcType=INTEGER}
+  </update>
 </mapper>

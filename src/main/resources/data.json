@@ -1,0 +1,94 @@
+{
+	"table1":{
+		"infoTable":["10,1","10,6","10,14","17,2"],
+		"dataTable":["14,3","16,18"]
+	},
+	"table2":{
+		"infoTable":["10,1","10,6","10,14","19,2","16,17"],
+		"dataTable":["16,3","18,16"]
+	},
+	"table3":{
+		"infoTable":["2,1","7,1","7,3","7,5"],
+		"dataTable":["5,3","5,7"]
+	},
+	"table4":{
+		"infoTable":["5,1","5,8"],
+		"dataTable":["10,2","12,9"]
+	},
+	"table5":{
+		"infoTable":["3,1","3,8"],
+		"dataTable":["6,3","10,9"]
+	},
+	"table6":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table7":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table8":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table9":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table10":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+	"table11":{
+		"infoTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		},
+		"dataTable":{
+			"create":"create table school(id int, name varchar(50), addr varchar(50))",
+			"insert":"",
+			"select":""
+		}
+	},
+}

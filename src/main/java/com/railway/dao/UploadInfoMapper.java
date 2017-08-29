@@ -20,5 +20,8 @@ public interface UploadInfoMapper {
 
     int updateByPrimaryKey(UploadInfo record);
     
+    int updateBySelective(@Param("userName")String userName,@Param("year")String year,
+    		@Param("table_id")int table_id,@Param("uploaded")int uploaded);
+    
     List<UploadInfo> selectBySelective(@Param("userName")String userName,@Param("year")String year,@Param("list")List<Integer> list);
 }

@@ -23,6 +23,7 @@ import com.railway.bean.UploadInfo;
 import com.railway.model.TableInfoView;
 import com.railway.service.TableService;
 import com.railway.service.UploadService;
+import com.railway.utils.CommonUtil;
 
 @Controller  
 public class UserStatisticsController {
@@ -38,10 +39,7 @@ public class UserStatisticsController {
 	public Map<String, Object>  getStatisticsInfo(HttpSession session,Model model,@RequestBody Category type) {
 		String userName = (String) session.getAttribute("userName");
 		System.out.println("userName:" + userName + ",type=" +type.getId());
-		int year = 2017;
-		if(new Date().getYear() >= year){
-			year = new Date().getYear();
-		}
+		int year = CommonUtil.getYear();
 		//根据typeId获取表格信息
 		List<TableInfo> listTable = tableService.getTableInfo(type.getId());
 		List<Integer> listIds = new ArrayList<Integer>();

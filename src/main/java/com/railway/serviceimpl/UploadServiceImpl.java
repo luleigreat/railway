@@ -17,14 +17,17 @@ public class UploadServiceImpl implements UploadService{
 	
 	@Override
 	public int insert(UploadInfo info) {
-		// TODO Auto-generated method stub
-		return 0;
+		return uploadDao.insert(info);
 	}
 
 	@Override
 	public List<UploadInfo> selectBySelective(String userName,String year, List<Integer> list) {
-		// TODO Auto-generated method stub
 		return uploadDao.selectBySelective(userName,year, list);
+	}
+
+	@Override
+	public int updateBySelective(String userName, String year, int tableid, int uploaded) {
+		return uploadDao.updateBySelective(userName, year, tableid, uploaded);
 	}
 	
 }
