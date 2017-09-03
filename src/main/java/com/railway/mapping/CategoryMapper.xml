@@ -1,56 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.railway.dao.CategoryMapper" >
-  <resultMap id="BaseResultMap" type="com.railway.bean.Category" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.railway.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.railway.bean.Category">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     id, type_name
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_type_info
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <select id="selectAll" parameterType="java.lang.Void" resultMap="BaseResultMap">
+   	select * from t_type_info
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_type_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.railway.bean.Category" >
+  <insert id="insert" parameterType="com.railway.bean.Category">
     insert into t_type_info (id, type_name)
     values (#{id,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.railway.bean.Category" >
+  <insert id="insertSelective" parameterType="com.railway.bean.Category">
     insert into t_type_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="typeName != null" >
+      <if test="typeName != null">
         type_name,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="typeName != null" >
+      <if test="typeName != null">
         #{typeName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.Category" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.Category">
     update t_type_info
-    <set >
-      <if test="typeName != null" >
+    <set>
+      <if test="typeName != null">
         type_name = #{typeName,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.railway.bean.Category" >
+  <update id="updateByPrimaryKey" parameterType="com.railway.bean.Category">
     update t_type_info
     set type_name = #{typeName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

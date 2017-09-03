@@ -1,5 +1,7 @@
 package com.railway.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,10 @@ public class UserServiceImpl implements UserService {
     public User getUserByUserName(String userName) {  
         System.out.println("getUserByUserName:" + userName);
         return this.userDao.selectByPrimaryKey(userName);  
-    }  
+    }
+	@Override
+	public List<User> getAll() {
+		return userDao.selectAll();
+	}  
   
 }  

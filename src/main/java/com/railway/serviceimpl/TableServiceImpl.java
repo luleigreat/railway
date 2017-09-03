@@ -20,4 +20,9 @@ public class TableServiceImpl implements TableService{
 		return tableDao.selectByTypeId(type);
 	}
 
+	@Override
+	public TableInfo getTableInfoById(int tableId) {
+		return tableDao.selectByPrimaryKey(tableId);
+	}
+
 }

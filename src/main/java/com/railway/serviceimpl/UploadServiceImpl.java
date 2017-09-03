@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.railway.bean.UploadInfo;
-import com.railway.bean.UploadInfoKey;
 import com.railway.dao.UploadInfoMapper;
 import com.railway.service.UploadService;
 
@@ -26,8 +25,8 @@ public class UploadServiceImpl implements UploadService{
 	}
 
 	@Override
-	public int updateBySelective(String userName, String year, int tableid, int uploaded) {
-		return uploadDao.updateBySelective(userName, year, tableid, uploaded);
+	public List<UploadInfo> selectByTableId(int tableId) {
+		return uploadDao.selectByTableId(tableId);
 	}
 	
 }

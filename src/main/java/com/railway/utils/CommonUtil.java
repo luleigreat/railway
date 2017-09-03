@@ -112,7 +112,7 @@ public class CommonUtil {
 	public static Position parseCoord(String sPos){
 		String[] posArray = sPos.split(",");
 		int row = Integer.parseInt(posArray[0]) - 1;
-		int column = Integer.parseInt(posArray[1]);
+		int column = Integer.parseInt(posArray[1]) - 1;
 		return new Position(row,column);
 	}
 	

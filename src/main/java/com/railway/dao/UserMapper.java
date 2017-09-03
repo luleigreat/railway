@@ -1,5 +1,7 @@
 package com.railway.dao;
 
+import java.util.List;
+
 import com.railway.bean.User;
 
 public interface UserMapper {
@@ -14,4 +16,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    List<User> selectAll();
 }

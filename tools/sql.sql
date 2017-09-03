@@ -35,13 +35,12 @@ create table t_upload_info(
   user_name varchar(100),
   year varchar(100),
   table_id int(4),
-  uploaded int(4),
-  constraint pk_upload_info primary key(user_name,year)
+  update_time date
 ) charset=utf8 ENGINE=InnoDB;
 
 
 insert into t_admin_info values("admin","admin");
-insert into t_user_info values("gzz","gzz");
+insert into t_user_info values("gzz","gzz","广州站");
 
 insert into t_type_info values(1,"教育部统计报表");
 insert into t_type_info values(2,"铁总数据预统计");

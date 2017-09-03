@@ -104,43 +104,45 @@ body {
   border-radius: 50%;
 }
 
-/*indexµÄ´¹Ö±µ¼º½Ò»¡¢¶þ¼¶²Ëµ¥ÑùÊ½*/
+/*indexï¿½Ä´ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ê½*/
 body {
 		}
-		/*×ó²à²Ëµ¥*/
+		/*ï¿½ï¿½ï¿½Ëµï¿½*/
 		.sidebar-menu{
 			border-right: 1px solid #c4c8cb;
 		}
-		/*Ò»¼¶²Ëµ¥*/
+		/*Ò»ï¿½ï¿½ï¿½Ëµï¿½*/
 		.menu-first{
 			height: 60px;
 			line-height: 40px;
 			background-color: #e9e9e9;
 			border-top: 1px solid #efefef;
 			border-bottom: 1px solid #e1e1e1;
-			padding: 0;
+			padding-left: 100;
 			font-size: 18px;
 			font-weight: normal;
-			text-align: center;
+			text-align: left;
 		}
-		/*Ò»¼¶²Ëµ¥Êó±ê»®¹ý×´Ì¬*/
+		/*Ò»ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ê»®ï¿½ï¿½×´Ì¬*/
 		.menu-first:hover{
 			text-decoration: none;
 			background-color: #d6d4d5;
 			border-top: 1px solid #b7b7b7;
 			border-bottom: 1px solid #acacac;
 		}
-		/*¶þ¼¶²Ëµ¥*/
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½*/
 		.menu-second li a{
 			background-color: #f6f6f6;
 			height: 40px;
-			line-height: 37px;
+			line-height: 36px;
 			border-top: 1px solid #efefef;
 			border-bottom: 1px solid #efefef;
 			font-size: 14px;
-			text-align: center;
+			padding-left: 20;
+			text-align: left;
+			vertical-align:middle;
 		}
-		/*¶þ¼¶²Ëµ¥Êó±ê»®¹ýÑùÊ½*/
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ê»®ï¿½ï¿½ï¿½ï¿½Ê½*/
 		.menu-second li a:hover {
 			text-decoration: none;
 			background-color: #66c3ec;
@@ -149,7 +151,7 @@ body {
 			border-right: 3px solid #f8881c;
 			border-left: 3px solid #66c3ec;
 		}
-		/*¶þ¼¶²Ëµ¥Ñ¡ÖÐ×´Ì¬*/
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
 		.menu-second-selected {
 			background-color: #66c3ec;
 			height:31px;
@@ -160,8 +162,42 @@ body {
 			border-left: 3px solid #66c3ec;
 			text-align:center;
 		}
-		/*¸²¸ÇbootstrapµÄÑùÊ½*/
+		Ñ¡ï¿½ï¿½×´Ì¬*/
+		.menu-third li a{
+			background-color: #f6f6f6;
+			height: 34px;
+			line-height: 30px;
+			border-top: 1px solid #efefef;
+			border-bottom: 1px solid #efefef;
+			font-size: 10px;
+			padding-left: 40;
+			text-align: left;
+			vertical-align:middle;
+		}
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ê»®ï¿½ï¿½ï¿½ï¿½Ê½*/
+		.menu-third li a:hover {
+			text-decoration: none;
+			background-color: #66c3ec;
+			border-top: 1px solid #83ceed;
+			border-bottom: 1px solid #83ceed;
+			border-right: 3px solid #f8881c;
+			border-left: 3px solid #66c3ec;
+		}
+		/*ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ñ¡ï¿½ï¿½×´Ì¬*/
+		.menu-third-selected {
+			background-color: #66c3ec;
+			height:31px;
+			line-height:28px;
+			border-top: 1px solid #83ceed;
+			border-bottom: 1px solid #83ceed;
+			border-right: 3px solid #f8881c;
+			border-left: 3px solid #66c3ec;
+			padding-left: 40;
+			text-align:left;
+			vertical-align:middle;
+		}
+		/*ï¿½ï¿½ï¿½ï¿½bootst
 		.nav-list,.nav-list li a{
 			padding: 0px;
 			margin: 0px;
-		}
+		}rapï¿½ï¿½ï¿½ï¿½Ê½*/

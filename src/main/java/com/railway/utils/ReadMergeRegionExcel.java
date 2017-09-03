@@ -101,7 +101,7 @@ public class ReadMergeRegionExcel {
 	 * @param column
 	 * @return
 	 */
-	private boolean isMergedRow(Sheet sheet, int row, int column) {
+	public boolean isMergedRow(Sheet sheet, int row, int column) {
 		int sheetMergeCount = sheet.getNumMergedRegions();
 		for (int i = 0; i < sheetMergeCount; i++) {
 			CellRangeAddress range = sheet.getMergedRegion(i);
@@ -128,7 +128,7 @@ public class ReadMergeRegionExcel {
 	 *            列下标
 	 * @return
 	 */
-	private boolean isMergedRegion(Sheet sheet, int row, int column) {
+	public boolean isMergedRegion(Sheet sheet, int row, int column) {
 		int sheetMergeCount = sheet.getNumMergedRegions();
 		for (int i = 0; i < sheetMergeCount; i++) {
 			CellRangeAddress range = sheet.getMergedRegion(i);
@@ -172,6 +172,11 @@ public class ReadMergeRegionExcel {
 		sheet.addMergedRegion(new CellRangeAddress(firstRow, lastRow, firstCol, lastCol));
 	}
 
+	public String getCellValue(Sheet sheet, int row, int column){
+		Row fRow = sheet.getRow(row);
+		Cell fCell = fRow.getCell(column);
+		return getCellValue(fCell);
+	}
 	/**   
 	* 获取单元格的值   
 	* @param cell   
@@ -196,7 +201,7 @@ public class ReadMergeRegionExcel {
 	            
 	    }else if(cell.getCellType() == Cell.CELL_TYPE_NUMERIC){    
 	            
-	        return String.valueOf(cell.getNumericCellValue());    
+	        return String.valueOf((int)cell.getNumericCellValue());    
 	    }    
 	    return "";    
 	}

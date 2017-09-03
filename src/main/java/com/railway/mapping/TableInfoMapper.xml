@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.railway.dao.TableInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.railway.bean.TableInfo" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="table_name" property="tableName" jdbcType="VARCHAR" />
-    <result column="type_id" property="typeId" jdbcType="INTEGER" />
-    <result column="template_path" property="templatePath" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.railway.dao.TableInfoMapper">
+  <resultMap id="BaseResultMap" type="com.railway.bean.TableInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="template_path" jdbcType="VARCHAR" property="templatePath" />
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     id, table_name, type_id, template_path
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_table_info
@@ -22,63 +22,63 @@
     from t_table_info
     where type_id = #{type_id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_table_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.railway.bean.TableInfo" >
+  <insert id="insert" parameterType="com.railway.bean.TableInfo">
     insert into t_table_info (id, table_name, type_id, 
       template_path)
     values (#{id,jdbcType=INTEGER}, #{tableName,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
       #{templatePath,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.railway.bean.TableInfo" >
+  <insert id="insertSelective" parameterType="com.railway.bean.TableInfo">
     insert into t_table_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="tableName != null" >
+      <if test="tableName != null">
         table_name,
       </if>
-      <if test="typeId != null" >
+      <if test="typeId != null">
         type_id,
       </if>
-      <if test="templatePath != null" >
+      <if test="templatePath != null">
         template_path,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="tableName != null" >
+      <if test="tableName != null">
         #{tableName,jdbcType=VARCHAR},
       </if>
-      <if test="typeId != null" >
-        #{type_id,jdbcType=INTEGER},
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
       </if>
-      <if test="templatePath != null" >
+      <if test="templatePath != null">
         #{templatePath,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.TableInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.railway.bean.TableInfo">
     update t_table_info
-    <set >
-      <if test="tableName != null" >
+    <set>
+      <if test="tableName != null">
         table_name = #{tableName,jdbcType=VARCHAR},
       </if>
-      <if test="type_id != null" >
-        type_id = #{type_id,jdbcType=INTEGER},
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=INTEGER},
       </if>
-      <if test="templatePath != null" >
+      <if test="templatePath != null">
         template_path = #{templatePath,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.railway.bean.TableInfo" >
+  <update id="updateByPrimaryKey" parameterType="com.railway.bean.TableInfo">
     update t_table_info
     set table_name = #{tableName,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=INTEGER},

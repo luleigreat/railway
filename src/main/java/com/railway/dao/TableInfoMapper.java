@@ -2,6 +2,7 @@ package com.railway.dao;
 
 import java.util.List;
 
+import com.railway.bean.Category;
 import com.railway.bean.TableInfo;
 
 public interface TableInfoMapper {

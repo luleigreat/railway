@@ -29,8 +29,8 @@ public class TableInfo {
         return typeId;
     }
 
-    public void setTypeId(Integer tableType) {
-        this.typeId = tableType;
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
     }
 
     public String getTemplatePath() {

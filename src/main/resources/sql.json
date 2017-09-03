@@ -15,7 +15,7 @@
 	},
 	"table2":{
 		"infoTable":{
-			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50), statisticTime varchar(50),people varchar(50),underRow varchar(200)),extraData varchar(20))",
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50), statisticTime varchar(50),people varchar(50),underRow varchar(200),extraData varchar(20))",
 			"insert":"insert into %s values",
 			"delete":"delete from %s where userName='%s'",
 			"select":"select * from %s where userName = %s"
@@ -29,7 +29,7 @@
 	},
 	"table3":{
 		"infoTable":{
-			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writePerson varchar(50), phonenumber varchar(50),time varchar(50)),
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writePerson varchar(50), phonenumber varchar(50),time varchar(50))",
 			"insert":"insert into %s values",
 			"delete":"delete from %s where userName='%s'",
 			"select":"select * from %s where userName = %s"
@@ -43,13 +43,13 @@
 	},
 	"table4":{
 		"infoTable":{
-			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),people varchar(50)),
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),people varchar(50))",
 			"insert":"insert into %s values",
 			"delete":"delete from %s where userName='%s'",
 			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7,int,data8 int)",
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int)",
 			"insert":"insert into %s values",
 			"drop":"drop table if exists %s",
 			"select":"select * from %s"
@@ -57,13 +57,13 @@
 	},
 	"table5":{
 		"infoTable":{
-			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),people varchar(50)),
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),people varchar(50))",
 			"insert":"insert into %s values",
 			"delete":"delete from %s where userName='%s'",
 			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7)",
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int)",
 			"insert":"insert into %s values",
 			"drop":"drop table if exists %s",
 			"select":"select * from %s"
@@ -71,74 +71,86 @@
 	},
 	"table6":{
 		"infoTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writer varchar(50),phone varchar(50),date varchar(50))",
+			"insert":"insert into %s values",
+			"delete":"delete from %s where userName='%s'",
+			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int,data9 int,data10 int,data11 int,data12 int,data13 int,data14 int,data15 int,data16 int,data17 int,data18 int,data19 int,data20 int,data21 int,data22 int)",
+			"insert":"insert into %s values",
+			"drop":"drop table if exists %s",
+			"select":"select * from %s"
 		}
 	},
 	"table7":{
 		"infoTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writer varchar(50),phone varchar(50),date varchar(50))",
+			"insert":"insert into %s values",
+			"delete":"delete from %s where userName='%s'",
+			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int,data9 int)",
+			"insert":"insert into %s values",
+			"drop":"drop table if exists %s",
+			"select":"select * from %s"
 		}
 	},
 	"table8":{
 		"infoTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writer varchar(50),phone varchar(50),date varchar(50))",
+			"insert":"insert into %s values",
+			"delete":"delete from %s where userName='%s'",
+			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int,data9 int,data10 int,data11 int,data12 int)",
+			"insert":"insert into %s values",
+			"drop":"drop table if exists %s",
+			"select":"select * from %s"
 		}
 	},
 	"table9":{
 		"infoTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writer varchar(50),phone varchar(50),date varchar(50))",
+			"insert":"insert into %s values",
+			"delete":"delete from %s where userName='%s'",
+			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int,data9 int,data10 int,data11 int,data12 int,data13 int,data14 int,data15 int,data16 int,data17 int,data18 int,data19 int)",
+			"insert":"insert into %s values",
+			"drop":"drop table if exists %s",
+			"select":"select * from %s"
 		}
 	},
 	"table10":{
 		"infoTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writer varchar(50),phone varchar(50),date varchar(50))",
+			"insert":"insert into %s values",
+			"delete":"delete from %s where userName='%s'",
+			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int,data9 int,data10 int,data11 int,data12 int,data13 int,data14 int,data15 int,data16 int,data17 int,data18 int,data19 int,data20 int,data21 int,data22 int,data23 int,data24 int,data25 int,data26 int)",
+			"insert":"insert into %s values",
+			"drop":"drop table if exists %s",
+			"select":"select * from %s"
 		}
 	},
 	"table11":{
 		"infoTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(userName varchar(50),writeUnit varchar(50),writer varchar(50),phone varchar(50),date varchar(50))",
+			"insert":"insert into %s values",
+			"delete":"delete from %s where userName='%s'",
+			"select":"select * from %s where userName = %s"
 		},
 		"dataTable":{
-			"create":"create table school(id int, name varchar(50), addr varchar(50))",
-			"insert":"",
-			"select":""
+			"create":"create table if not exists %s(data1 int,data2 int,data3 int,data4 int,data5 int,data6 int,data7 int,data8 int,data9 int,data10 int)",
+			"insert":"insert into %s values",
+			"drop":"drop table if exists %s",
+			"select":"select * from %s"
 		}
 	},
 }

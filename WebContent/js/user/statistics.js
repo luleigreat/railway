@@ -43,7 +43,7 @@ var LLPage_EduStatistics = {
 					htmlText += "<td><a href=\"javascript:;\" class=\"upload_file\">更新 " +
 										"<input type=\"file\" name=\"file\" id=\"" + uploadId + "\" onchange=\"ajaxUpload('"  + uploadId + "','" + data[item].tableId + "');\">" +
 									"</a>&nbsp;&nbsp;" +
-									"<a href=\"#\">浏览 " +
+									"<a href=\"../../scan?tableId=" + data[item].tableId +  "&type=" + typeId + "&filename=" + data[item].tableName + "\">浏览 " +
 									"</a>" +
 								"</td>";
                 }else{
