@@ -10,14 +10,18 @@
 	<script type="text/javascript" src="../../js/ajaxfileupload.js"></script>
 	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>	
 	<script type="text/javascript" src="../../js/user/statistics.js"></script>
+	<%
+	  int typeId = Integer.parseInt(request.getParameter("typeId")); 
+	%>
 	<script type="text/javascript">
 		/*
 		 * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
 		 * （实现左侧菜单中的标签点击后变色的效果）
 		 */
 		$(document).ready(function () {
-			LLPage_EduStatistics.init(3);
+			LLPage_EduStatistics.init(<%=typeId%>);
 		});
+		
 		function ajaxUpload(id,tableId){
 			LLPage_EduStatistics.ajaxUpload(id,tableId);
 		};

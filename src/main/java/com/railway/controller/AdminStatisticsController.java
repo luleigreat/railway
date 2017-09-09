@@ -97,7 +97,7 @@ public class AdminStatisticsController {
 		return mapRet;
 	}
 
-	@RequestMapping(value = "/admin/statictics/summarize", method = RequestMethod.POST, consumes = "application/json")  //上传了之后浏览
+	@RequestMapping(value = "/admin/statistics/summarize", method = RequestMethod.POST, consumes = "application/json")  //上传了之后浏览
 	public void scan(HttpSession session,HttpServletRequest request,HttpServletResponse response,@RequestParam("tableId") int tableId)throws Exception{
    	TableInfo tableInfo = tableService.getTableInfoById(tableId);
    	String filename="";

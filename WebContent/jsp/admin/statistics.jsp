@@ -15,8 +15,13 @@
 	<%
 	  int tableId = Integer.parseInt(request.getParameter("tableId")); 
 	  String tableName = request.getParameter("tableName");
+	  String encode = "ISO-8859-1";
+	  String tableNameShow = tableName;
+//	  if (tableName.equals(new String(tableName.getBytes(encode), encode))) {
+//		  
+//	  }
+
 	  tableName = new String(tableName	.getBytes("ISO-8859-1"),"UTF-8");
-	  System.out.println(tableId + "," + tableName);
 	%>
 	<script type="text/javascript">
 		/*
@@ -28,7 +33,7 @@
 		});
 	</script>
 	<h1 class="page-header">
-		<small><%=tableName%>  数据上传情况：
+		<small><%=tableNameShow%>  数据上传情况：
 		</small>
 	</h1>
 	<div class="table-responsive">

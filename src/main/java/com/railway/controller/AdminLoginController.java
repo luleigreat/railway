@@ -72,6 +72,7 @@ public class AdminLoginController {
 				}
 				mav.addObject("mapRet", mapRet);
 				mav.setViewName("admin/index");
+				System.out.println("return admin/index");
 			}
 		}catch (Exception e) {
 			logger.error(e.getMessage());

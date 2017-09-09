@@ -72,9 +72,9 @@
 						<!-- 二级菜单 -->
 						<!-- 注意一级菜单中<a>标签内的href="#……"里面的内容要与二级菜单中<ul>标签内的id="……"里面的内容一致 -->
 						<ul id="recordMeun" class="nav nav-list collapse menu-second">
-							<li><a href="###" onclick="showJsp('jsp/user/eduStatistics.jsp')" ><i class="fa fa-list"></i> 教育部统计报表</a></li>
-							<li><a href="###" onclick="showJsp('jsp/user/preStatistics.jsp')" ><i class="fa fa-list"></i> 铁总数据预统计</a></li>
-							<li><a href="###" onclick="showJsp('jsp/user/clerkEduStatistics.jsp')" ><i class="fa fa-list"></i> 铁总职教统计&nbsp;&nbsp;&nbsp; </a></li>
+							<li><a href="###" onclick="showJsp('jsp/user/statistics.jsp',1)" ><i class="fa fa-list"></i> 教育部统计报表</a></li>
+							<li><a href="###" onclick="showJsp('jsp/user/statistics.jsp',2)" ><i class="fa fa-list"></i> 铁总数据预统计</a></li>
+							<li><a href="###" onclick="showJsp('jsp/user/statistics.jsp',3)" ><i class="fa fa-list"></i> 铁总职教统计&nbsp;&nbsp;&nbsp; </a></li>
 						</ul>							
 					</ul>
 					
@@ -104,8 +104,8 @@
 				
 			});
 			
-			function showJsp(jspPath){
-				document.getElementById("iframeContent").src = jspPath;
+			function showJsp(jspPath,typeid){
+				document.getElementById("iframeContent").src = jspPath + '?typeId=' + typeid;
 			}
 		</script>
 	

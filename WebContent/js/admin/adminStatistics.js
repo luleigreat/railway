@@ -38,7 +38,7 @@ var LLPage_AdminStatistics = {
                 htmlText += "<tr>";
                 htmlText += "<td>" +  data[item].userName  + "</td>";
                 if(data[item].uploaded){
-					htmlText += "<td><a href=\"../../scan?tableId=" + data[item].tableId + "&type=0&filename=\"\"" + "\">已上传 "+ "</a></td>";
+					htmlText += "<td><a href=\"../../scan?tableId=" + tableId + "&type=0&filename=\"\"" + "\">已上传 "+ "</a></td>";
 					htmlText += "<td>" + data[item].uploadTime + "</td>";
 
                 }else{
