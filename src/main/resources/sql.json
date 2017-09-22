@@ -152,5 +152,5 @@
 			"drop":"drop table if exists %s",
 			"select":"select * from %s"
 		}
-	},
+	}
 }

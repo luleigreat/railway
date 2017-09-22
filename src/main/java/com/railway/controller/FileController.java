@@ -244,7 +244,7 @@ public class FileController {
      * @param response  
      * @throws Exception  
      */  
-     @RequestMapping("/download")  //上传了之后再下载
+     @RequestMapping("/download")  //下载模板
     public ResponseEntity<byte[]> download(HttpServletRequest request,@RequestParam("filename") String filename,@RequestParam("type") String type,Model model)throws Exception{
         String path=request.getServletContext().getRealPath("/template");  //获取文件所在路径
         path = path + File.separator + type;

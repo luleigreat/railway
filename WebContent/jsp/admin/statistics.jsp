@@ -33,7 +33,7 @@
 		});
 	</script>
 	<h1 class="page-header">
-		<small><%=tableNameShow%>  数据上传情况：
+		<small><%=tableNameShow%>  数据上传情况：<span id="uploadRate"></span>
 		</small>
 	</h1>
 	<div class="table-responsive">

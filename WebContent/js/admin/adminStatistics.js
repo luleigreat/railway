@@ -17,7 +17,7 @@ var LLPage_AdminStatistics = {
                     if (data.error) {
                         alert(data.error);
                     }else{
-                    	updateTable(data.result,tableId);
+                    	updateTable(data.result,data.uploadRate,tableId);
                     }
                 },
                 error : function(data) {
@@ -27,7 +27,7 @@ var LLPage_AdminStatistics = {
             });
     	}
     	
-    	function updateTable(data,tableId){
+    	function updateTable(data,rate,tableId){
             var table = document.getElementById("blocktable");
 
             var htmlText = "";
@@ -47,6 +47,7 @@ var LLPage_AdminStatistics = {
                 }
             }
             $("#blocktable tbody").html(htmlText);
+            $("#uploadRate").html("(" + rate + ")");
     	}
     	
     	initTable(tableId);
@@ -54,18 +55,18 @@ var LLPage_AdminStatistics = {
 }
 
 function summarize(tableId){
-	var id = {"id":tableId};
+	var url = "../../admin/statistics/summarize?tableId=" + tableId;
     $.ajax({
-        type : "POST",
-        url : "../../admin/statistics/summarize",
-        data : JSON.stringify(id),
+        url : url,
+//        data : JSON.stringify(id),
         contentType : 'application/json;charset=utf-8',
-        dataType : 'json',
-        success : function(data) {
-            if (data.error) {
-                alert(data.error);
-            }else{
-            	alert(data.message);
+//        dataType : 'json',
+        success: function(response, status, request) {
+            var disp = request.getResponseHeader('Content-Disposition');
+            if (disp && disp.search('attachment') != -1) {  //判断是否为文件
+                var form = $('<form method="POST" action="' + url + '">');
+                $('body').append(form);
+                form.submit(); //自动提交
             }
         },
         error : function(data) {

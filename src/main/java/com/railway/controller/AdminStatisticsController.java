@@ -3,6 +3,7 @@ package com.railway.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -17,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
@@ -34,7 +34,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.railway.bean.Category;
 import com.railway.bean.TableInfo;
 import com.railway.bean.UploadInfo;
 import com.railway.bean.User;
@@ -67,6 +66,7 @@ public class AdminStatisticsController {
 			List<UploadInfo> listUpload = uploadService.selectByTableId(table.getId());
 			
 			List<UploadInfoView> listView = new ArrayList<UploadInfoView>();
+			int uploadCount = 0;
 			for(User user : listUser){
 				boolean occured = false;
 				Date date = new Date();
@@ -84,12 +84,14 @@ public class AdminStatisticsController {
 					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
 			        String dateStr = sdf.format(date);  
 					view.setDate(dateStr);
+					uploadCount ++;
 				}
 				listView.add(view);
 			}
 			mapRet.put("result", listView);
+			mapRet.put("uploadRate", uploadCount + "/" + listUser.size());
 		}catch(Exception e){
-			mapRet.put("errpr", "执行异常");
+			mapRet.put("error", "执行异常");
 			e.printStackTrace();
 		}
 		
@@ -97,15 +99,19 @@ public class AdminStatisticsController {
 		return mapRet;
 	}
 
-	@RequestMapping(value = "/admin/statistics/summarize", method = RequestMethod.POST, consumes = "application/json")  //上传了之后浏览
-	public void scan(HttpSession session,HttpServletRequest request,HttpServletResponse response,@RequestParam("tableId") int tableId)throws Exception{
-   	TableInfo tableInfo = tableService.getTableInfoById(tableId);
-   	String filename="";
-   	String type="";
-   	if(tableInfo != null){
-   		filename = tableInfo.getTableName();
-   		type = tableInfo.getTypeId().toString();
-   	}
+//	@RequestMapping(value = "/admin/statistics/summarize", method = RequestMethod.POST, consumes = "application/json")  //上传了之后浏览
+//	@ResponseBody
+//	public void summarize(HttpSession session,HttpServletRequest request,HttpServletResponse response,@RequestBody TableInfo table)throws Exception{
+//		int tableId = table.getId();
+	 @RequestMapping("/admin/statistics/summarize")  
+	public void summarize(HttpSession session,HttpServletRequest request,HttpServletResponse response,@RequestParam("tableId") int tableId)throws Exception{
+	   	TableInfo tableInfo = tableService.getTableInfoById(tableId);
+	   	String filename="";
+	   	String type="";
+	   	if(tableInfo != null){
+	   		filename = tableInfo.getTableName();
+	   		type = tableInfo.getTypeId().toString();
+	   	}
        String path=request.getServletContext().getRealPath("/template");  //获取文件所在路径
        path = path + File.separator + type;
        
@@ -129,16 +135,25 @@ public class AdminStatisticsController {
 	        	listData.add(listTmp);
 	        }
 	        
-	        List<Integer> listExtra = getExtraData(tableId);
-	        
 	        List<List<Integer>> listSum = summarize(listData);
-	        int extra = summarizeList(listExtra);
+	        
+	        //职工继续教育表，特殊处理
+	        int extra = 0;
+	        if(tableId == 2){
+	        	List<Integer> listExtra = getExtraData(tableId);
+		        extra = summarizeList(listExtra);
+	        }
 	        
 	        boolean bRet = data2Excel(wb,listSum,extra,tableId);
 	        if(bRet){
 	        	out = response.getOutputStream();
 				wb.write(out);
 	        }
+	        
+//			//修改模板内容导出新模板  
+	        FileOutputStream out2 = new FileOutputStream("d:/export.xls");  
+	        wb.write(out2);  
+	        out2.close(); 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (InvalidFormatException e) {
@@ -202,7 +217,11 @@ public class AdminStatisticsController {
 					listAdd = listRet.get(j);
 				}
 				for(int k=0; k<list2.size(); k++){
-					listAdd.set(k, listAdd.get(k) + Integer.parseInt(list2.get(k)));
+					if(listAdd.size() <= k){
+						listAdd.add(Integer.parseInt(list2.get(k)));
+					}else{
+						listAdd.set(k, listAdd.get(k) + Integer.parseInt(list2.get(k)));
+					}
 				}
 				listRet.set(j, listAdd);
 			}
